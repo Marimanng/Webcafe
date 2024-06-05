@@ -1,0 +1,68 @@
+body{
+    background-color:#F5E1B5;
+  }
+  header {
+  background-color:#D6C08C;
+  padding-bottom: 20px;
+  box-shadow: 0 3px 15px -3px #4C4C4C;
+  position: fixed;
+  width: 100%;
+  margin-top: -10px;
+  z-index: 99;
+}
+  
+  .ca img{
+    width: 500px;
+    height: 700px;
+    border-radius: 110px;
+    margin-left: 50px;
+    box-shadow: 0 3px 15px -3px #4C4C4C;
+    
+  }
+  
+  h1{
+      font-size: 50px;
+      font-style: italic;
+      font-family: 'Times New Roman';
+      margin:30px 1px;
+    }
+  .titulo{
+    background-color:transparent;
+    
+    padding:10px;
+    border-radius:15px;
+  }
+    p{
+        font-size: 20px ;
+        font-weight:300;
+      font-family: serif ;
+      
+    }
+    div{
+        font-size: 26px;
+        font-weight:600;
+      font-family: serif ;
+  }
+  p{
+   
+    font-size: 20px;
+  }
+  button{
+    background-color: #C8AF78;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    border:#9F906D;
+    
+  }
+  a{
+    font-family:  'Times New Roman';
+    text-decoration: none;
+    color: black;
+  }
+  button:hover{
+  background: #fff;
+  color: rgb(24, 14, 14);
+  border: solid 2px rgb(223, 166, 91);
+  transition-duration: .3s
+  }
