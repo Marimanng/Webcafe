@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tienda</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<script src="dist/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+<style>
+    body{
+  background-color:#F5E1B5;
+ padding: top 60px;
+}
+header{
+  background-color:#D6C08C;
+  padding-bottom: 20px;
+  box-shadow: 0 3px 15px -3px #4C4C4C;
+  position: fixed;
+  width: 100%;
+  margin-top: -10px;
+  z-index: 99;
+}
+
+h1{
+    font-size: 30px;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    margin:30px 0px;
+    
+  }
+  img{
+  width:500px;  
+  height:300px;
+  border-radius:30px 30px 0px 0px;
+ 
+  }
+.container{
+  max-width: 1200px;
+  text-align: center;
+  margin: 10px;
+ 
+}
+.header-section{
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  position: relative;
+}
+.header-section div{
+  position: relative;
+}
+.header-section p{
+  position: absolute;
+  top: -24px;
+  right: -8px;
+  background-color: #fff;
+  padding: 1px 6px;
+  border-radius: 50%;
+  color:brown;
+  font-weight: 700;
+  font-family: system-ui;
+  line-height: 18px;
+}
+.logo{
+  width: 100px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.cart{
+  width: 39px;
+  height: 38px;
+
+}
+.cart-products{
+  position: absolute!important;
+  top: 82px;
+  right: -18px;
+  background-color:#F1DCCB;
+  padding: 0 18px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  display: none;
+  border-radius: 30px;
+  min-width: 0px;
+}
+
+.cart:hover{
+  margin-bottom: 16px;
+  transition-duration: .5s;
+}
+
+.products{
+  padding-top: 170px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.carts{
+  max-width: 250px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  padding-bottom: 34px;
+  margin-bottom: 40px;
+  background-color:rgb(243, 222, 225);
+}
+.carts img{
+  width: 100%;
+}
+.carts p{
+  font-family: system-ui;
+  font-weight: 500;
+  padding: 0 20px;
+  margin-bottom: 24px;
+}
+.carts div p{
+  color: black;
+}
+.carts div{
+  position: relative;
+}
+.carts a{
+  font-family: system-ui;
+  text-decoration: none;
+  background:#C8AF78 ;
+  padding: 9px 23px;
+  color: black;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.carts a:hover{
+  background: #fff;
+  color: rgb(24, 14, 14);
+  border: solid 2px rgb(223, 166, 91);
+  transition-duration: .3s;
+}
+
+
+.cart-products .item img{
+  width: 30px;
+  height:30px;
+  object-fit:cover;
+  border-radius:10px 10px 0px 0px;
+}
+
+.cart-products .item{
+  display: flex;
+  align-items: center;
+  border-bottom: solid 2px #E3CA9C;
+}
+.cart-products .item .item-content{
+  margin: 0 19px;
+  width: 201px;
+}
+.cart-products .item .item-content h5{
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: system-ui;
+}
+.cart-products .item .item-content h6{
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: system-ui;
+}
+.cart-products .item span{
+  background-color:#C8AF78;
+  padding: 0px 5px;
+  border-radius: 50%;
+  color: #fff;
+  font-family: system-ui;
+  cursor: pointer;
+}
+.cart-products h3{
+  margin-bottom: 0;
+}
+.cart-products .item .item-content h5.cart-price{
+  font-weight: 700;
+}
+
+
+p.close-btn{
+  top: -4px;
+  right: 6px;
+  cursor: pointer;
+  color: #000;
+}
+p.author {
+  display: flex;
+  justify-content: center;
+  FONT-VARIANT: JIS04;
+  margin-top: 3%;
+  gap: 7px;
+}
+p.author a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #000;
+}
+.tik button{
+  
+  width:70px;
+  height:30px;
+  margin: 25px;
+}
+
+
+</style>
+<body>
+    <header>
+        <button><a href="cafe.html"back()>atras</a></button>
+        <div class="header-section container">
+            <img class="logo" src="ya.png" alt="">
+            <h1>Gelatina Jarochitas</h1>
+            <div>
+                <img onclick="showCart(this)" class="cart" src="cart.png" alt="">
+                <p class="count-product">0</p>
+            </div>
+            <div class="cart-products" id="products-id">
+                <p class="close-btn" onclick="closeBtn()">X</p>
+                <h3>Mis compras</h3>
+               <div class="card-items">
+                </div>
+                <h2>Total: $<strong class="price-total">0</strong></h2>
+                
+            </div>
+        </div>
+    </header>
+    <br><section class="container">
+        <div class="products">
+            <div class="carts">
+                <div>
+                    <img src="yo.jpg" alt="">
+                    <p>$<span>30</span></p>
+                </div>
+              <p class="title">Gelatina de cafe </p>
+                <a href="" data-id="1" class="btn-add-cart">añadir</a>
+            </div>
+        
+             
+        </div>
+    </section>
+
+    <script>
+        function showCart(x){
+            document.getElementById("products-id").style.display = "block";
+        }
+        function closeBtn(){
+             document.getElementById("products-id").style.display = "none";
+        }
+
+//variables
+let allContainerCart = document.querySelector('.products');
+let containerBuyCart = document.querySelector('.card-items');
+let priceTotal = document.querySelector('.price-total')
+let amountProduct = document.querySelector('.count-product');
+
+
+let buyThings = [];
+let totalCard = 0;
+let countProduct = 0;
+
+//functions
+loadEventListenrs();
+function loadEventListenrs(){
+    allContainerCart.addEventListener('click', addProduct);
+
+    containerBuyCart.addEventListener('click', deleteProduct);
+}
+
+function addProduct(e){
+    e.preventDefault();
+    if (e.target.classList.contains('btn-add-cart')) {
+        const selectProduct = e.target.parentElement; 
+        readTheContent(selectProduct);
+    }
+}
+
+function deleteProduct(e) {
+    if (e.target.classList.contains('delete-product')) {
+        const deleteId = e.target.getAttribute('data-id');
+
+        buyThings.forEach(value => {
+            if (value.id == deleteId) {
+                let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
+                totalCard =  totalCard - priceReduce;
+                totalCard = totalCard.toFixed(2);
+            }
+        });
+        buyThings = buyThings.filter(product => product.id !== deleteId);
+        
+        countProduct--;
+    }
+    //FIX: El contador se quedaba con "1" aunque ubiera 0 productos
+    if (buyThings.length === 0) {
+        priceTotal.innerHTML = 0;
+        amountProduct.innerHTML = 0;
+    }
+    loadHtml();
+}
+
+function readTheContent(product){
+    const infoProduct = {
+        image: product.querySelector('div img').src,
+        title: product.querySelector('.title').textContent,
+        price: product.querySelector('div p span').textContent,
+        id: product.querySelector('a').getAttribute('data-id'),
+        amount: 1
+    }
+
+    totalCard = parseFloat(totalCard) + parseFloat(infoProduct.price);
+    totalCard = totalCard.toFixed(2);
+
+    const exist = buyThings.some(product => product.id === infoProduct.id);
+    if (exist) {
+        const pro = buyThings.map(product => {
+            if (product.id === infoProduct.id) {
+                product.amount++;
+                return product;
+            } else {
+                return product
+            }
+        });
+        buyThings = [...pro];
+    } else {
+        buyThings = [...buyThings, infoProduct]
+        countProduct++;
+    }
+    loadHtml();
+    //console.log(infoProduct);
+}
+
+function loadHtml(){
+    clearHtml();
+    buyThings.forEach(product => {
+        const {image, title, price, amount, id} = product;
+        const row = document.createElement('div');
+        row.classList.add('item');
+        row.innerHTML = `
+            <img src="${image}" alt="">
+            <div class="item-content">
+                <h5>${title}</h5>
+                <h5 class="cart-price">${price}$</h5>
+                <h6>cantidad: ${amount}</h6>
+            </div>
+            <span class="delete-product" data-id="${id}">X  </span>
+            
+            
+            <div class="tik">
+  <button onclick="emergente()">comprar</button>
+</div>
+            
+        `;
+
+        containerBuyCart.appendChild(row);
+
+        priceTotal.innerHTML = totalCard;
+
+        amountProduct.innerHTML = countProduct;
+    });
+}
+ function clearHtml(){
+    containerBuyCart.innerHTML = '';
+ }
+
+function emergente(){
+  swal("¡compra exitosa!","gracias por elegirnos");
+}
+
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
+      
+    </script>
+</body>
+</html>
